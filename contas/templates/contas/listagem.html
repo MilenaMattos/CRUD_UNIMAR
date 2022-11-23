@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in data %}
+                    <tr>
+                        <td>{{ data.descricao }} </td>
+                        <td>{{ data.valor }}</td>
+                        <td>{{ data.observacoes}}</td>
+                        <td><a class="btn btn-warning" href="{% url 'url_update' data.id %}">Editar</a>
+                            <a class="btn btn-danger" href="{% url 'url_delete' data.id %}">Remover</a></td>
+                        
+                    </tr>
+
+                    
+                    {% endfor %}
+                    <form class"form-inline">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Busque por uma Data">
+                        <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+        
+        
+       
+    
+<a class="btn btn-success" href="{% url 'url_nova' %}">Novo</a>
+<a class="" href="{% url 'url_pdf' %}"> Gerar PDF</a>
+
+
+{% endblock %}
